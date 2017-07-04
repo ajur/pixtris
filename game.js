@@ -137,7 +137,7 @@ class BlocksPool {
         this.block_textures = {};
         this.pool = {};
         Object.values(SHAPE_COLORS).forEach(color => {
-            this.block_textures[color] = PIXI.loader.resources['sprites.json'].textures['block_'+color+'.png'];
+            this.block_textures = PIXI.loader.resources.blocks.textures;
             this.pool[color] = [];
         });
     }
@@ -437,12 +437,12 @@ class Game {
         this.app = new PIXI.Application(SCREEN_WIDTH, SCREEN_HEIGHT, {});
         document.body.appendChild(this.app.view);
         
-        PIXI.loader.add('sprites.json').load(this.init.bind(this));
+        PIXI.loader.add('blocks', 'sprites.json').load(this.init.bind(this));
     }
     
     init() {
         let background = new PIXI.extras.TilingSprite(
-            PIXI.loader.resources['sprites.json'].textures['background.png'], 
+            PIXI.loader.resources.blocks.textures.background, 
             this.app.renderer.width,
             this.app.renderer.height);
         this.app.stage.addChild(background);
