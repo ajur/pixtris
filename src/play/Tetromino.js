@@ -34,35 +34,10 @@ export const SHAPES = {
 export const SHAPE_COLORS = {j: 'blue', s: 'green', t: 'purple', o: 'yellow', 
                       i: 'cyan', l: 'orange', z: 'red'};
 
-
-export class TetronimoSpawner {
-    constructor() {
-        this.queue = [];
-        this.refillQueue();
-    }
-    
-    refillQueue() {
-        let s = 'izlstzo';
-        let a = (s+s+s+s).split('');
-        for (let i = a.length; i > 0; --i) {
-            let j = Math.floor(Math.random() * i);
-            let tmp = a[i-1];
-            a[i-1] = a[j];
-            a[j] = tmp;
-        }
-        this.queue = a.concat(this.queue);
-    }
-    
-    spawn() {
-        if(this.queue.length < 2) {
-            this.refillQueue();
-        }
-        return new Tetromino(this.queue.pop());
-    }
-}
-
-
-export class Tetromino {
+/**
+ * Represent tetromino with position and rotation
+ */
+export default class Tetromino {
     constructor(shapeType) {
         this.shapeType = shapeType;
         this.color = SHAPE_COLORS[shapeType];
@@ -79,6 +54,15 @@ export class Tetromino {
         this.shape = SHAPES[this.shapeType][this.shapeRotation];
     }
     
+    /**
+     * Return absolute (real on-grid position) positions of tetromino blocks,
+     * without changing current position.
+     * Additional arguments are used to modify returned positions and simulate movement.
+     * @param   {Number} shiftRow = 0     shifts row position
+     * @param   {Number} shiftCol = 0     shifts column position
+     * @param   {Boolean} rotate = false  use next shape rotation
+     * @returns {Array} list of block positions, each being a two element list [row, col]
+     */
     absolutePos(shiftRow = 0, shiftCol = 0, rotate = false) {
         let shape = rotate ? SHAPES[this.shapeType][(this.shapeRotation+1)%4] : this.shape;
         return shape.map(pos => [this.row + shiftRow + pos[0],

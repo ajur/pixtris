@@ -1,7 +1,7 @@
 
 import { controls as controlsConfig } from '../config';
 
-
+// handled keys
 const KEY_MAP = {
     27: 'escape',
     32: 'space',
@@ -11,7 +11,9 @@ const KEY_MAP = {
     40: 'down'
 };
 
-
+/**
+ * Represents key control and handle custom repeat delay
+ */
 class Key {
     constructor(code) {
         this.code = code;
@@ -22,6 +24,10 @@ class Key {
         this.repeatTimer = 0;
     }
     
+    /**
+     * Update repeat counters and check if action should be triggered
+     * @returns {boolean} true if action should be triggered
+     */
     trigger() {
         if (this.pressed) {
             --this.repeatTimer;
@@ -47,6 +53,12 @@ class Key {
     }
 }
 
+
+/**
+ * Handles keyboard controls for known keys
+ * 
+ * This class could be more generic, but its not needed for this game.
+ */
 export default class Keyboard {
     constructor() {
         this.keys = {};

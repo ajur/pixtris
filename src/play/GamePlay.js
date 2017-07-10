@@ -2,9 +2,11 @@ import config from '../config';
 import State from '../utils/State';
 import Board from './Board';
 import Renderer from './Renderer';
-import { TetronimoSpawner } from './tetromino';
+import TetronimoSpawner from './TetronimoSpawner';
 
-
+/**
+ * GamePlay state provides main game logic
+ */
 export default class GamePlay extends State {
     constructor(game) {
         super();
@@ -15,6 +17,9 @@ export default class GamePlay extends State {
         this.addChild(this.renderer);
     }
     
+    /**
+     * Reset game
+     */
     enter() {
         super.enter();
         
@@ -32,8 +37,16 @@ export default class GamePlay extends State {
         this.spawnTetromino();
     }
     
+    /**
+     * Keep this state visible after exit,
+     * enabling ending layout to be visible under score screen
+     */
     exit() {}
     
+    /**
+     * Main update funcion
+     * @param {Number} dt pixi timer deltaTime
+     */
     update(dt) {
         if (this.game.key.escape.trigger()) {
             this.game.setState('menu');
@@ -47,6 +60,9 @@ export default class GamePlay extends State {
         this.renderer.updateFromTetromino(this.tetromino);
     }
     
+    /**
+     * Spawn new active tetromino and test for end game condition
+     */
     spawnTetromino() {
         this.tetromino = this.spawner.spawn();
         this.tetromino.row = 0;
@@ -58,6 +74,9 @@ export default class GamePlay extends State {
         }
     }
     
+    /**
+     * merge active tetromino with board
+     */
     lockTetromino() {
         let fullRows = this.board.setAll(this.tetromino.absolutePos(), this.tetromino.color);
         this.tetromino = null;
@@ -68,14 +87,28 @@ export default class GamePlay extends State {
         }
     }
     
+    /**
+     * handle game ending
+     */
     gameOver() {
         this.game.scores.add(this.rowsCleared, this.score);
         this.game.setState('gameover');
     }
     
+    /**
+     * Update terominos falling and handle user input
+     */
     updateTetromino() {
-        if (this.game.key.up.trigger() && !this.board.collides(this.tetromino.absolutePos(0, 0, true))) {
-            this.tetromino.rotate();
+        if (this.game.key.up.trigger()) {
+            if (!this.board.collides(this.tetromino.absolutePos(0, 0, true))) {
+                this.tetromino.rotate();
+            } else if (!this.board.collides(this.tetromino.absolutePos(0, -1, true))) {
+                --this.tetromino.col;
+                this.tetromino.rotate();
+            } else if (!this.board.collides(this.tetromino.absolutePos(0, 1, true))) {
+                ++this.tetromino.col;
+                this.tetromino.rotate();
+            }
         }
         
         if (this.game.key.left.trigger() && !this.board.collides(this.tetromino.absolutePos(0, -1))) {
@@ -97,6 +130,10 @@ export default class GamePlay extends State {
         }
     }
     
+    /**
+     * Update score based on number of cleared rows
+     * @param {Number} rows count of rows cleared in one move
+     */
     updateScore(rows) {
         this.rowsCleared += rows;
         this.score += Math.pow(2, rows - 1);

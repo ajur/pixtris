@@ -1,4 +1,7 @@
 
+/**
+ * Tetris grid model
+ */
 export default class Board {
     constructor(rows, cols) {
         this.rows = rows;
@@ -14,6 +17,11 @@ export default class Board {
         }
     }
     
+    /**
+     * Test if any provided position is not empty
+     * @param   {Array} positions list of positions in form [row, col]
+     * @returns {boolean}  collision status
+     */
     collides(positions) {
         let row, col;
         for(let i = 0; i < positions.length; ++i) {
@@ -29,10 +37,22 @@ export default class Board {
         return false;
     }
     
+    /**
+     * Test if row is full
+     * @param   {Number} row tested row
+     * @returns {Number} test result
+     */
     isFull(row) {
         return this.grid[row].every(cell => !!cell);
     }
     
+    /**
+     * Set provided value in board grid for each given position.
+     * Additionally, for each changed row, test if its full.
+     * @param   {Array} positions list of positions in form [row, col]
+     * @param   {Object} val value to set, like block colour name
+     * @returns {Array} list of full rows
+     */
     setAll(positions, val) {
         let i,row,col,block;
         let rowsToCheck = new Set();
@@ -43,6 +63,10 @@ export default class Board {
         return Array.from(rowsToCheck).filter(this.isFull, this);
     }
     
+    /**
+     * Clear full rows and move remaining blocks down.
+     * @param {Array} rows indexes to clear
+     */
     cleanRows(rows) {
         rows.sort((a,b) => a - b);
         let emptyRows = [];

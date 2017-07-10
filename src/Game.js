@@ -7,7 +7,9 @@ import GameMenu from './menu/GameMenu';
 import GameOver from './menu/GameOver';
 
 
-
+/**
+ * Represent whole game and handles state changes
+ */
 export default class Game {
     constructor(app) {
         this.app = app;
@@ -16,6 +18,9 @@ export default class Game {
         this.state = null;
     }
     
+    /**
+     * start game, execute after all assets are loaded
+     */
     run() {
         let background = new PIXI.extras.TilingSprite(
             PIXI.loader.resources.blocks.textures.background, 
@@ -38,17 +43,30 @@ export default class Game {
         this.app.ticker.add(this.update, this);
     }
     
+    /**
+     * Add new state
+     * @param {String} stateName
+     * @param {State} state     new state instance
+     */
     addState(stateName, state) {
         this.gameStates[stateName] = state;
         this.app.stage.addChild(state);
     }
     
+    /**
+     * Handle game update 
+     * @param {Number} dt PIXI timer deltaTime
+     */
     update(dt) {
         if (this.state) {
             this.state.update(dt);
         }
     }
     
+    /**
+     * changes current state
+     * @param {String} stateName
+     */
     setState(stateName) {
         let oldState = this.state;
         

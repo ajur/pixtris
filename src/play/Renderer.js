@@ -1,8 +1,18 @@
 
 import * as PIXI from 'pixi.js';
 
-
+/**
+ * Render board and avtive teromino using PIXI.js
+ */
 export default class Renderer extends PIXI.Container {
+    
+    /**
+     * Initialize renderer
+     * @param {Number} rows       Number of visible rows
+     * @param {Number} cols       Number of visible columns
+     * @param {Number} rowsOffset Number of rows in model to skip from rendering
+     * @param {Number} blockSize  Target block size
+     */
     constructor(rows, cols, rowsOffset, blockSize) {
         super();
         

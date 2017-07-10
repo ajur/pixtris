@@ -6,7 +6,7 @@ import State from '../utils/State';
 
 export const fancyTextStyle = new TextStyle({
     fontFamily: 'Arial',
-    fontSize: 36,
+    fontSize: 42,
     fontWeight: 'bold',
     fill: ['#fff500', '#ff4e00'],
     stroke: '#934400',
@@ -19,7 +19,7 @@ export const fancyTextStyle = new TextStyle({
 
 export const simpleTextStyle = new TextStyle({
     fontFamily: 'Arial',
-    fontSize: 14,
+    fontSize: 18,
     fill: '#fff500',
     stroke: '#934400',
     strokeThickness: 1,
@@ -30,6 +30,9 @@ export const simpleTextStyle = new TextStyle({
     dropShadowDistance: 1});
 
 
+/**
+ * Display Main Menu screen
+ */
 export default class GameMenu extends State {
     constructor(game) {
         super();

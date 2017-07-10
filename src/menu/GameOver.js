@@ -5,6 +5,9 @@ import State from '../utils/State';
 import {fancyTextStyle, simpleTextStyle} from './GameMenu';
 
 
+/**
+ * Display Game Over screen
+ */
 export default class GameOver extends State {
     constructor(game) {
         super();

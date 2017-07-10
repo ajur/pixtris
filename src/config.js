@@ -10,11 +10,13 @@ export const game = {
     dropModifier: 10
 }
 
+const SPRITE_SIZE = 32;
+
 export const display = {
     // currently hardcoded block sprite size
-    blockSize: 16,
-    width: game.cols * 16,
-    height: game.rows * 16
+    blockSize: SPRITE_SIZE,
+    width: game.cols * SPRITE_SIZE,
+    height: game.rows * SPRITE_SIZE
 }
 
 export const controls = {

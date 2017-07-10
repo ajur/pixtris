@@ -1,5 +1,7 @@
 
-
+/**
+ * Keep track of recent scores
+ */
 export default class ScoreTable {
     
     constructor() {
