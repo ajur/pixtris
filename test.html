@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Pixtris</title>
+</head>
+<body>
+    <script src="pixi.js"></script>
+    <script>
+        app = new PIXI.Application(400, 400, {});
+        document.body.appendChild(app.view);
+        
+        PIXI.loader.add('blocks', 'sprites.json').load(function(){
+            
+            let textures = Object.values(PIXI.loader.resources.blocks.textures);
+            let txtIdx = 0;
+            let spr = new PIXI.Sprite(textures[txtIdx]);
+            
+            spr.x = 100;
+            spr.y = 100;
+            spr.scale.set(4);
+            
+            app.stage.addChild(spr);
+            
+            let timer = 60;
+            
+            app.ticker.add(function(dt){
+                if ((timer -= dt) < 0) {
+                    timer = 60;
+                    txtIdx = (txtIdx + 1) % textures.length;
+                    spr.texture = textures[txtIdx];
+                }
+            })
+            
+        });
+    </script>
+</body>
+</html>
