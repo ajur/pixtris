@@ -268,7 +268,7 @@ Object.defineProperty(exports, 'Spritesheet', {
   }
 });
 
-var _Texture = __webpack_require__(8);
+var _Texture = __webpack_require__(9);
 
 Object.defineProperty(exports, 'Texture', {
   enumerable: true,
@@ -827,7 +827,7 @@ var _settings = __webpack_require__(3);
 
 var _settings2 = _interopRequireDefault(_settings);
 
-var _eventemitter = __webpack_require__(7);
+var _eventemitter = __webpack_require__(8);
 
 var _eventemitter2 = _interopRequireDefault(_eventemitter);
 
@@ -1871,6 +1871,124 @@ var substr = 'ab'.substr(-1) === 'b'
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/* WEBPACK VAR INJECTION */(function(global) {
+
+exports.__esModule = true;
+exports.loader = exports.prepare = exports.particles = exports.mesh = exports.loaders = exports.interaction = exports.filters = exports.extras = exports.extract = exports.accessibility = undefined;
+
+var _polyfill = __webpack_require__(90);
+
+Object.keys(_polyfill).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    Object.defineProperty(exports, key, {
+        enumerable: true,
+        get: function get() {
+            return _polyfill[key];
+        }
+    });
+});
+
+var _core = __webpack_require__(0);
+
+Object.keys(_core).forEach(function (key) {
+    if (key === "default" || key === "__esModule") return;
+    Object.defineProperty(exports, key, {
+        enumerable: true,
+        get: function get() {
+            return _core[key];
+        }
+    });
+});
+
+var _deprecation = __webpack_require__(152);
+
+var _deprecation2 = _interopRequireDefault(_deprecation);
+
+var _accessibility = __webpack_require__(153);
+
+var accessibility = _interopRequireWildcard(_accessibility);
+
+var _extract = __webpack_require__(155);
+
+var extract = _interopRequireWildcard(_extract);
+
+var _extras = __webpack_require__(71);
+
+var extras = _interopRequireWildcard(_extras);
+
+var _filters = __webpack_require__(165);
+
+var filters = _interopRequireWildcard(_filters);
+
+var _interaction = __webpack_require__(172);
+
+var interaction = _interopRequireWildcard(_interaction);
+
+var _loaders = __webpack_require__(176);
+
+var loaders = _interopRequireWildcard(_loaders);
+
+var _mesh = __webpack_require__(180);
+
+var mesh = _interopRequireWildcard(_mesh);
+
+var _particles = __webpack_require__(185);
+
+var particles = _interopRequireWildcard(_particles);
+
+var _prepare = __webpack_require__(190);
+
+var prepare = _interopRequireWildcard(_prepare);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// export core
+_core.utils.mixins.performMixins();
+
+/**
+ * Alias for {@link PIXI.loaders.shared}.
+ * @name loader
+ * @memberof PIXI
+ * @type {PIXI.loader.Loader}
+ */
+
+
+// handle mixins now, after all code has been added, including deprecation
+
+
+// export libs
+// import polyfills. Done as an export to make sure polyfills are imported first
+var loader = loaders.shared || null;
+
+exports.accessibility = accessibility;
+exports.extract = extract;
+exports.extras = extras;
+exports.filters = filters;
+exports.interaction = interaction;
+exports.loaders = loaders;
+exports.mesh = mesh;
+exports.particles = particles;
+exports.prepare = prepare;
+exports.loader = loader;
+
+// Apply the deprecations
+
+if (typeof _deprecation2.default === 'function') {
+    (0, _deprecation2.default)(exports);
+}
+
+// Always export pixi globally.
+global.PIXI = exports; // eslint-disable-line
+//# sourceMappingURL=index.js.map
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21)))
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 
 
 var has = Object.prototype.hasOwnProperty
@@ -2185,7 +2303,7 @@ if (true) {
 
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2207,7 +2325,7 @@ var _TextureUvs = __webpack_require__(56);
 
 var _TextureUvs2 = _interopRequireDefault(_TextureUvs);
 
-var _eventemitter = __webpack_require__(7);
+var _eventemitter = __webpack_require__(8);
 
 var _eventemitter2 = _interopRequireDefault(_eventemitter);
 
@@ -2865,124 +2983,6 @@ removeAllHandlers(Texture.WHITE.baseTexture);
 //# sourceMappingURL=Texture.js.map
 
 /***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(global) {
-
-exports.__esModule = true;
-exports.loader = exports.prepare = exports.particles = exports.mesh = exports.loaders = exports.interaction = exports.filters = exports.extras = exports.extract = exports.accessibility = undefined;
-
-var _polyfill = __webpack_require__(90);
-
-Object.keys(_polyfill).forEach(function (key) {
-    if (key === "default" || key === "__esModule") return;
-    Object.defineProperty(exports, key, {
-        enumerable: true,
-        get: function get() {
-            return _polyfill[key];
-        }
-    });
-});
-
-var _core = __webpack_require__(0);
-
-Object.keys(_core).forEach(function (key) {
-    if (key === "default" || key === "__esModule") return;
-    Object.defineProperty(exports, key, {
-        enumerable: true,
-        get: function get() {
-            return _core[key];
-        }
-    });
-});
-
-var _deprecation = __webpack_require__(152);
-
-var _deprecation2 = _interopRequireDefault(_deprecation);
-
-var _accessibility = __webpack_require__(153);
-
-var accessibility = _interopRequireWildcard(_accessibility);
-
-var _extract = __webpack_require__(155);
-
-var extract = _interopRequireWildcard(_extract);
-
-var _extras = __webpack_require__(71);
-
-var extras = _interopRequireWildcard(_extras);
-
-var _filters = __webpack_require__(165);
-
-var filters = _interopRequireWildcard(_filters);
-
-var _interaction = __webpack_require__(172);
-
-var interaction = _interopRequireWildcard(_interaction);
-
-var _loaders = __webpack_require__(176);
-
-var loaders = _interopRequireWildcard(_loaders);
-
-var _mesh = __webpack_require__(180);
-
-var mesh = _interopRequireWildcard(_mesh);
-
-var _particles = __webpack_require__(185);
-
-var particles = _interopRequireWildcard(_particles);
-
-var _prepare = __webpack_require__(190);
-
-var prepare = _interopRequireWildcard(_prepare);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// export core
-_core.utils.mixins.performMixins();
-
-/**
- * Alias for {@link PIXI.loaders.shared}.
- * @name loader
- * @memberof PIXI
- * @type {PIXI.loader.Loader}
- */
-
-
-// handle mixins now, after all code has been added, including deprecation
-
-
-// export libs
-// import polyfills. Done as an export to make sure polyfills are imported first
-var loader = loaders.shared || null;
-
-exports.accessibility = accessibility;
-exports.extract = extract;
-exports.extras = extras;
-exports.filters = filters;
-exports.interaction = interaction;
-exports.loaders = loaders;
-exports.mesh = mesh;
-exports.particles = particles;
-exports.prepare = prepare;
-exports.loader = loader;
-
-// Apply the deprecations
-
-if (typeof _deprecation2.default === 'function') {
-    (0, _deprecation2.default)(exports);
-}
-
-// Always export pixi globally.
-global.PIXI = exports; // eslint-disable-line
-//# sourceMappingURL=index.js.map
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(21)))
-
-/***/ }),
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2997,7 +2997,7 @@ var _settings = __webpack_require__(3);
 
 var _settings2 = _interopRequireDefault(_settings);
 
-var _eventemitter = __webpack_require__(7);
+var _eventemitter = __webpack_require__(8);
 
 var _eventemitter2 = _interopRequireDefault(_eventemitter);
 
@@ -8419,7 +8419,7 @@ var _utils = __webpack_require__(2);
 
 var _const = __webpack_require__(1);
 
-var _Texture = __webpack_require__(8);
+var _Texture = __webpack_require__(9);
 
 var _Texture2 = _interopRequireDefault(_Texture);
 
@@ -9338,7 +9338,7 @@ var _BaseRenderTexture = __webpack_require__(58);
 
 var _BaseRenderTexture2 = _interopRequireDefault(_BaseRenderTexture);
 
-var _Texture2 = __webpack_require__(8);
+var _Texture2 = __webpack_require__(9);
 
 var _Texture3 = _interopRequireDefault(_Texture2);
 
@@ -11601,6 +11601,9 @@ const game = {
     hiddenRows: 2,
     // number of frames between block falls one row
     fallSpeed: 30,
+    fallSpeedMin: 3,
+    fallSpeedupStep: 2,
+    fallSpeedupDelay: 1800,
     // block will fall this time faster when drop key pressed
     dropModifier: 10
 }
@@ -11620,8 +11623,8 @@ const display = {
 
 const controls = {
     // controls key repeat speed
-    repeatDelay: 4,
-    initialRepeatDelay: 12
+    repeatDelay: 2,
+    initialRepeatDelay: 10
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = controls;
 
@@ -11634,43 +11637,73 @@ const controls = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_pixi_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_State__ = __webpack_require__(88);
+
+
+
+
+
+const fancyTextStyle = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["TextStyle"]({
+    fontFamily: 'Arial',
+    fontSize: 42,
+    fontWeight: 'bold',
+    fill: ['#FD79A8', '#34AEFC', '#FC1051'],
+    stroke: '#000000',
+    strokeThickness: 4});
+/* unused harmony export fancyTextStyle */
+
+
+const simpleTextStyle = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["TextStyle"]({
+    fontFamily: 'Arial',
+    fontSize: 18,
+    fill: '#FFF1E9',
+    stroke: '#000000',
+    strokeThickness: 4});
+/* unused harmony export simpleTextStyle */
 
 
 
 
 /**
- * Base class for game states.
- * Extends PIXI.Container for easy state switching.
+ * Display Game Over screen
  */
-class State extends __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Container"] {
-    constructor() {
+class BaseMenu extends __WEBPACK_IMPORTED_MODULE_1__utils_State__["a" /* default */] {
+    constructor(game, titleText = 'PIXTRIS', infoText = 'Press SPACE to play') {
         super();
-        this.visible = false;
+        
+        this.game = game;
+        
+        this.background = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Graphics"]();
+        this.background.beginFill(0x000000, 0.5);
+        this.background.drawRect(0, 0, this.game.app.renderer.width, this.game.app.renderer.height);
+        this.background.endFill();
+        this.addChild(this.background);
+        
+        this.title = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Text"](titleText, fancyTextStyle);
+        this.title.anchor.set(0.5);
+        this.title.x = this.game.app.view.width * 0.5;
+        this.title.y = this.game.app.renderer.height * 0.20;
+        this.addChild(this.title);
+        
+        this.info = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Text"](infoText, simpleTextStyle);
+        this.info.anchor.set(0.5);
+        this.info.x = this.game.app.view.width * 0.5;
+        this.info.y = this.game.app.renderer.height * 0.90;
+        this.addChild(this.info);
+        this.infoVisibilityCounter = 20;
+        
     }
     
-    /**
-     * action on state enter
-     */
-    enter() {
-        this.visible = true;
+    update(dt) {
+        if (--this.infoVisibilityCounter == 0) {
+            this.infoVisibilityCounter = 45;
+            this.info.visible = !this.info.visible;
+        }
     }
-    
-    /**
-     * action on state exit
-     */
-    exit() {
-        this.visible = false;
-    }
-    
-    /**
-     * action on state update (game loop)
-     * @param {Number} dt PIXI timer deltaTime
-     */
-    update(dt) {}
 }
-/* harmony export (immutable) */ __webpack_exports__["a"] = State;
+/* harmony export (immutable) */ __webpack_exports__["a"] = BaseMenu;
 
 
 
@@ -12875,7 +12908,7 @@ exports.__esModule = true;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _eventemitter = __webpack_require__(7);
+var _eventemitter = __webpack_require__(8);
 
 var _eventemitter2 = _interopRequireDefault(_eventemitter);
 
@@ -15170,7 +15203,7 @@ var _RenderTexture = __webpack_require__(32);
 
 var _RenderTexture2 = _interopRequireDefault(_RenderTexture);
 
-var _eventemitter = __webpack_require__(7);
+var _eventemitter = __webpack_require__(8);
 
 var _eventemitter2 = _interopRequireDefault(_eventemitter);
 
@@ -19849,7 +19882,7 @@ exports.default = function () {
 
 var _resourceLoader = __webpack_require__(15);
 
-var _Texture = __webpack_require__(8);
+var _Texture = __webpack_require__(9);
 
 var _Texture2 = _interopRequireDefault(_Texture);
 
@@ -20068,83 +20101,43 @@ exports.default = CountLimiter;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_pixi_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_State__ = __webpack_require__(39);
 
-
-
-
-
-
-const fancyTextStyle = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["TextStyle"]({
-    fontFamily: 'Arial',
-    fontSize: 42,
-    fontWeight: 'bold',
-    fill: ['#fff500', '#ff4e00'],
-    stroke: '#934400',
-    strokeThickness: 1,
-    dropShadow: true,
-    dropShadowColor: '#000000',
-    dropShadowBlur: 4,
-    dropShadowAngle: Math.PI / 6,
-    dropShadowDistance: 1});
-/* harmony export (immutable) */ __webpack_exports__["b"] = fancyTextStyle;
-
-
-const simpleTextStyle = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["TextStyle"]({
-    fontFamily: 'Arial',
-    fontSize: 18,
-    fill: '#fff500',
-    stroke: '#934400',
-    strokeThickness: 1,
-    dropShadow: true,
-    dropShadowColor: '#000000',
-    dropShadowBlur: 1,
-    dropShadowAngle: Math.PI / 6,
-    dropShadowDistance: 1});
-/* harmony export (immutable) */ __webpack_exports__["c"] = simpleTextStyle;
 
 
 
 /**
- * Display Main Menu screen
+ * Base class for game states.
+ * Extends PIXI.Container for easy state switching.
  */
-class GameMenu extends __WEBPACK_IMPORTED_MODULE_1__utils_State__["a" /* default */] {
-    constructor(game) {
+class State extends __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Container"] {
+    constructor() {
         super();
         
-        this.game = game;
-        
-        this.title = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Text"]('PIXTRIS', fancyTextStyle);
-        this.title.anchor.set(0.5);
-        this.title.x = this.game.app.view.width * 0.5;
-        this.title.y = this.game.app.renderer.height * 0.25;
-
-        this.addChild(this.title);
-        
-        this.info = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Text"]('Press SPACE to play', simpleTextStyle);
-        this.info.anchor.set(0.5);
-        this.info.x = this.game.app.view.width * 0.5;
-        this.info.y = this.game.app.renderer.height * 0.75;
-        
-        this.infoVisibilityCounter = 20;
-        
-        this.addChild(this.info);
+        this.visible = false;
     }
     
-    update() {
-        if (this.game.key.space.pressed) {
-            this.game.setState('play');
-        }
-        
-        if (--this.infoVisibilityCounter == 0) {
-            this.infoVisibilityCounter = 45;
-            this.info.visible = !this.info.visible;
-        }
-    }
+    /**
+     * action on state enter
+     * @param {Object} opts additional options passed on state change
+     */
+    enter(opts) {}
+    
+    /**
+     * action on state exit
+     * @param {Object} opts additional options passed on state change
+     */
+    exit(opts) {}
+    
+    /**
+     * action on state update (game loop)
+     * @param {Number} dt PIXI timer deltaTime
+     */
+    update(dt) {}
 }
-/* harmony export (immutable) */ __webpack_exports__["a"] = GameMenu;
+/* harmony export (immutable) */ __webpack_exports__["a"] = State;
+
 
 
 /***/ }),
@@ -20153,7 +20146,7 @@ class GameMenu extends __WEBPACK_IMPORTED_MODULE_1__utils_State__["a" /* default
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_pixi_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__config__ = __webpack_require__(38);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Game__ = __webpack_require__(194);
@@ -26703,7 +26696,7 @@ var _Sprite2 = __webpack_require__(29);
 
 var _Sprite3 = _interopRequireDefault(_Sprite2);
 
-var _Texture = __webpack_require__(8);
+var _Texture = __webpack_require__(9);
 
 var _Texture2 = _interopRequireDefault(_Texture);
 
@@ -27446,7 +27439,7 @@ var _RenderTexture = __webpack_require__(32);
 
 var _RenderTexture2 = _interopRequireDefault(_RenderTexture);
 
-var _Texture = __webpack_require__(8);
+var _Texture = __webpack_require__(9);
 
 var _Texture2 = _interopRequireDefault(_Texture);
 
@@ -33814,7 +33807,7 @@ var _core = __webpack_require__(0);
 
 var core = _interopRequireWildcard(_core);
 
-var _Texture = __webpack_require__(8);
+var _Texture = __webpack_require__(9);
 
 var _Texture2 = _interopRequireDefault(_Texture);
 
@@ -35488,7 +35481,7 @@ var _InteractionTrackingData = __webpack_require__(175);
 
 var _InteractionTrackingData2 = _interopRequireDefault(_InteractionTrackingData);
 
-var _eventemitter = __webpack_require__(7);
+var _eventemitter = __webpack_require__(8);
 
 var _eventemitter2 = _interopRequireDefault(_eventemitter);
 
@@ -38268,7 +38261,7 @@ var _resourceLoader2 = _interopRequireDefault(_resourceLoader);
 
 var _blob = __webpack_require__(179);
 
-var _eventemitter = __webpack_require__(7);
+var _eventemitter = __webpack_require__(8);
 
 var _eventemitter2 = _interopRequireDefault(_eventemitter);
 
@@ -41189,13 +41182,15 @@ exports.default = TimeLimiter;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_pixi_js__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_ScoreTable__ = __webpack_require__(195);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__utils_Keyboard__ = __webpack_require__(196);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__play_GamePlay__ = __webpack_require__(197);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__menu_GameMenu__ = __webpack_require__(88);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__menu_GameOver__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__menu_GameMenu__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__menu_GameOver__ = __webpack_require__(203);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__menu_GamePaused__ = __webpack_require__(204);
+
 
 
 
@@ -41231,6 +41226,7 @@ class Game {
         
         // define available game states
         this.addState('play', new __WEBPACK_IMPORTED_MODULE_3__play_GamePlay__["a" /* default */](this));
+        this.addState('pause', new __WEBPACK_IMPORTED_MODULE_6__menu_GamePaused__["a" /* default */](this));
         this.addState('menu', new __WEBPACK_IMPORTED_MODULE_4__menu_GameMenu__["a" /* default */](this));
         this.addState('gameover', new __WEBPACK_IMPORTED_MODULE_5__menu_GameOver__["a" /* default */](this));
         
@@ -41264,18 +41260,23 @@ class Game {
     /**
      * changes current state
      * @param {String} stateName
+     * @param {Object} opts additional options passed by previous state                    
      */
-    setState(stateName) {
+    setState(stateName, opts) {
         let oldState = this.state;
         
         this.state = null;
         
         if (oldState) {
-            oldState.exit();
+            if (!opts.keepVisible) {
+                oldState.visible = false;
+            }
+            oldState.exit(opts);
         }
         
         let newState = this.gameStates[stateName];
-        newState.enter();
+        newState.enter(opts);
+        newState.visible = true;
         this.state = newState;
     }
 }
@@ -41418,7 +41419,7 @@ class Keyboard {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__config__ = __webpack_require__(38);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_State__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_State__ = __webpack_require__(88);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Board__ = __webpack_require__(198);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__Renderer__ = __webpack_require__(199);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__TetronimoSpawner__ = __webpack_require__(200);
@@ -41437,6 +41438,10 @@ class GamePlay extends __WEBPACK_IMPORTED_MODULE_1__utils_State__["a" /* default
         
         this.game = game;
         
+        this.board = null;
+        this.spawner = null;
+        this.tetromino = null;
+        
         this.renderer = new __WEBPACK_IMPORTED_MODULE_3__Renderer__["a" /* default */](__WEBPACK_IMPORTED_MODULE_0__config__["b" /* default */].game.rows, __WEBPACK_IMPORTED_MODULE_0__config__["b" /* default */].game.cols, __WEBPACK_IMPORTED_MODULE_0__config__["b" /* default */].game.hiddenRows, __WEBPACK_IMPORTED_MODULE_0__config__["b" /* default */].display.blockSize);
         this.addChild(this.renderer);
     }
@@ -41444,36 +41449,40 @@ class GamePlay extends __WEBPACK_IMPORTED_MODULE_1__utils_State__["a" /* default
     /**
      * Reset game
      */
-    enter() {
-        super.enter();
-        
-        this.board = new __WEBPACK_IMPORTED_MODULE_2__Board__["a" /* default */](__WEBPACK_IMPORTED_MODULE_0__config__["b" /* default */].game.rows + __WEBPACK_IMPORTED_MODULE_0__config__["b" /* default */].game.hiddenRows, __WEBPACK_IMPORTED_MODULE_0__config__["b" /* default */].game.cols);
-        this.spawner = new __WEBPACK_IMPORTED_MODULE_4__TetronimoSpawner__["a" /* default */]();
-        
-        this.tetromino = null;
-        this.tetrominoFallTimer = 0;
-        this.tetrominoFallSpeed = __WEBPACK_IMPORTED_MODULE_0__config__["b" /* default */].game.fallSpeed;
-        this.tetrominoDropModifier = __WEBPACK_IMPORTED_MODULE_0__config__["b" /* default */].game.dropModifier;
-        
-        this.rowsCleared = 0;
-        this.score = 0;
-        
-        this.spawnTetromino();
+    enter(opts) {
+        if (opts.restart || this.board == null) {
+            this.board = new __WEBPACK_IMPORTED_MODULE_2__Board__["a" /* default */](__WEBPACK_IMPORTED_MODULE_0__config__["b" /* default */].game.rows + __WEBPACK_IMPORTED_MODULE_0__config__["b" /* default */].game.hiddenRows, __WEBPACK_IMPORTED_MODULE_0__config__["b" /* default */].game.cols);
+            this.spawner = new __WEBPACK_IMPORTED_MODULE_4__TetronimoSpawner__["a" /* default */]();
+
+            this.tetromino = null;
+            this.tetrominoFallSpeed = __WEBPACK_IMPORTED_MODULE_0__config__["b" /* default */].game.fallSpeed;
+            this.tetrominoFallSpeedMin = __WEBPACK_IMPORTED_MODULE_0__config__["b" /* default */].game.fallSpeedMin;
+            this.tetrominoFallSpeedupStep = __WEBPACK_IMPORTED_MODULE_0__config__["b" /* default */].game.fallSpeedupStep;
+            this.tetrominoFallSpeedupDelay = __WEBPACK_IMPORTED_MODULE_0__config__["b" /* default */].game.fallSpeedupDelay;
+            this.tetrominoDropModifier = __WEBPACK_IMPORTED_MODULE_0__config__["b" /* default */].game.dropModifier;
+
+            this.tetrominoFallTimer = this.tetrominoFallSpeed;
+            this.tetrominoFallSpeedupTimer = this.tetrominoFallSpeedupDelay;
+
+            this.rowsCleared = 0;
+            this.score = 0;
+
+            this.spawnTetromino();
+        }
     }
-    
-    /**
-     * Keep this state visible after exit,
-     * enabling ending layout to be visible under score screen
-     */
-    exit() {}
     
     /**
      * Main update funcion
      * @param {Number} dt pixi timer deltaTime
      */
     update(dt) {
-        if (this.game.key.escape.trigger()) {
-            this.game.setState('menu');
+        if (this.game.key.escape.trigger() || this.game.key.space.trigger()) {
+            this.game.setState('pause', {
+                keepVisible: true,
+                score:{
+                    points: this.score,
+                    lines: this.rowsCleared
+                }});
         }
         
         if (this.tetromino) {
@@ -41516,7 +41525,7 @@ class GamePlay extends __WEBPACK_IMPORTED_MODULE_1__utils_State__["a" /* default
      */
     gameOver() {
         this.game.scores.add(this.rowsCleared, this.score);
-        this.game.setState('gameover');
+        this.game.setState('gameover', {keepVisible: true});
     }
     
     /**
@@ -41543,6 +41552,11 @@ class GamePlay extends __WEBPACK_IMPORTED_MODULE_1__utils_State__["a" /* default
         }
          
         let tickMod = this.game.key.down.pressed ? this.tetrominoDropModifier : 1;
+        if ((--this.tetrominoFallSpeedupTimer) <= 0) {
+            this.tetrominoFallSpeed = Math.max(this.tetrominoFallSpeedMin, this.tetrominoFallSpeed - this.tetrominoFallSpeedupStep);
+            this.tetrominoFallSpeedupTimer = this.tetrominoFallSpeedupDelay;
+            console.log('speed: ', this.tetrominoFallSpeed);
+        }
         if ((this.tetrominoFallTimer -= tickMod) <= 0) {
             if (this.board.collides(this.tetromino.absolutePos(1, 0))) {
                 this.lockTetromino();
@@ -41677,7 +41691,7 @@ class Board {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_pixi_js__);
 
 
@@ -41884,11 +41898,40 @@ class Tetromino {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js__ = __webpack_require__(9);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_pixi_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_State__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__GameMenu__ = __webpack_require__(88);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__BaseMenu__ = __webpack_require__(39);
 
+
+
+
+/**
+ * Display Main Menu screen
+ */
+class GameMenu extends __WEBPACK_IMPORTED_MODULE_0__BaseMenu__["a" /* default */] {
+    constructor(game) {
+        super(game, 'PIXTRIS');
+        
+        this.game = game;
+    }
+    
+    update(dt) {
+        super.update(dt);
+        
+        if (this.game.key.space.trigger()) {
+            this.game.setState('play', {restart: true});
+        }
+    }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = GameMenu;
+
+
+/***/ }),
+/* 203 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_pixi_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__BaseMenu__ = __webpack_require__(39);
 
 
 
@@ -41898,53 +41941,82 @@ class Tetromino {
 /**
  * Display Game Over screen
  */
-class GameOver extends __WEBPACK_IMPORTED_MODULE_1__utils_State__["a" /* default */] {
+class GameOver extends __WEBPACK_IMPORTED_MODULE_1__BaseMenu__["a" /* default */] {
     constructor(game) {
-        super();
+        super(game, 'GAME\nOVER');
         
-        this.game = game;
-        
-        this.title = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Text"]('GAME\nOVER', __WEBPACK_IMPORTED_MODULE_2__GameMenu__["b" /* fancyTextStyle */]);
-        this.title.anchor.set(0.5);
-        this.title.x = this.game.app.view.width * 0.5;
-        this.title.y = this.game.app.renderer.height * 0.20;
-        this.addChild(this.title);
-        
-        this.scoreInfo = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Text"]('Last score', __WEBPACK_IMPORTED_MODULE_2__GameMenu__["c" /* simpleTextStyle */]);
+        this.scoreInfo = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Text"]('Last score', this.info.style);
         this.scoreInfo.anchor.set(0.5);
         this.scoreInfo.x = this.game.app.view.width * 0.5;
         this.scoreInfo.y = this.game.app.renderer.height * 0.50;
         this.addChild(this.scoreInfo);
-        
-        this.info = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Text"]('Press SPACE to play', __WEBPACK_IMPORTED_MODULE_2__GameMenu__["c" /* simpleTextStyle */]);
-        this.info.anchor.set(0.5);
-        this.info.x = this.game.app.view.width * 0.5;
-        this.info.y = this.game.app.renderer.height * 0.80;
-        
-        this.infoVisibilityCounter = 20;
-        
-        this.addChild(this.info);
     }
     
-    enter() {
-        super.enter();
-        
+    enter(opts) {
         let score = this.game.scores.getNewest();
         this.scoreInfo.text = `Score: ${score.points}\nLines: ${score.lines}`;
     }
     
-    update() {
-        if (this.game.key.space.pressed) {
-            this.game.setState('play');
-        }
+    update(dt) {
+        super.update(dt);
         
-        if (--this.infoVisibilityCounter == 0) {
-            this.infoVisibilityCounter = 45;
-            this.info.visible = !this.info.visible;
+        if (this.game.key.space.trigger()) {
+            this.game.setState('play', {restart: true});
         }
     }
 }
 /* harmony export (immutable) */ __webpack_exports__["a"] = GameOver;
+
+
+
+/***/ }),
+/* 204 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_pixi_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_pixi_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__BaseMenu__ = __webpack_require__(39);
+
+
+
+
+
+
+/**
+ * Display Game Over screen
+ */
+class GamePaused extends __WEBPACK_IMPORTED_MODULE_1__BaseMenu__["a" /* default */] {
+    constructor(game) {
+        super(game, 'PAUSED', 'Press SPACE to continue\nPress ESCAPE to restart');
+        
+        this.scoreInfo = new __WEBPACK_IMPORTED_MODULE_0_pixi_js__["Text"]('Last score', this.info.style);
+        this.scoreInfo.anchor.set(0.5);
+        this.scoreInfo.x = this.game.app.view.width * 0.5;
+        this.scoreInfo.y = this.game.app.renderer.height * 0.50;
+        this.addChild(this.scoreInfo);
+    }
+    
+    enter(opts) {
+        if (opts.score) {
+            this.scoreInfo.text = `Score: ${opts.score.points}\nLines: ${opts.score.lines}`;
+            this.scoreInfo.visible = true;
+        } else {
+            this.scoreInfo.visible = false;
+        }
+    }
+    
+    update(dt) {
+        super.update(dt);
+        
+        if (this.game.key.space.trigger()) {
+            this.game.setState('play', {restart: false});
+        } else if (this.game.key.escape.trigger()) {
+            this.game.setState('play', {restart: true});
+        }
+    }
+}
+/* harmony export (immutable) */ __webpack_exports__["a"] = GamePaused;
 
 
 

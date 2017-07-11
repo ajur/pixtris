@@ -13,6 +13,10 @@ export default class GamePlay extends State {
         
         this.game = game;
         
+        this.board = null;
+        this.spawner = null;
+        this.tetromino = null;
+        
         this.renderer = new Renderer(config.game.rows, config.game.cols, config.game.hiddenRows, config.display.blockSize);
         this.addChild(this.renderer);
     }
@@ -20,36 +24,40 @@ export default class GamePlay extends State {
     /**
      * Reset game
      */
-    enter() {
-        super.enter();
-        
-        this.board = new Board(config.game.rows + config.game.hiddenRows, config.game.cols);
-        this.spawner = new TetronimoSpawner();
-        
-        this.tetromino = null;
-        this.tetrominoFallTimer = 0;
-        this.tetrominoFallSpeed = config.game.fallSpeed;
-        this.tetrominoDropModifier = config.game.dropModifier;
-        
-        this.rowsCleared = 0;
-        this.score = 0;
-        
-        this.spawnTetromino();
+    enter(opts) {
+        if (opts.restart || this.board == null) {
+            this.board = new Board(config.game.rows + config.game.hiddenRows, config.game.cols);
+            this.spawner = new TetronimoSpawner();
+
+            this.tetromino = null;
+            this.tetrominoFallSpeed = config.game.fallSpeed;
+            this.tetrominoFallSpeedMin = config.game.fallSpeedMin;
+            this.tetrominoFallSpeedupStep = config.game.fallSpeedupStep;
+            this.tetrominoFallSpeedupDelay = config.game.fallSpeedupDelay;
+            this.tetrominoDropModifier = config.game.dropModifier;
+
+            this.tetrominoFallTimer = this.tetrominoFallSpeed;
+            this.tetrominoFallSpeedupTimer = this.tetrominoFallSpeedupDelay;
+
+            this.rowsCleared = 0;
+            this.score = 0;
+
+            this.spawnTetromino();
+        }
     }
-    
-    /**
-     * Keep this state visible after exit,
-     * enabling ending layout to be visible under score screen
-     */
-    exit() {}
     
     /**
      * Main update funcion
      * @param {Number} dt pixi timer deltaTime
      */
     update(dt) {
-        if (this.game.key.escape.trigger()) {
-            this.game.setState('menu');
+        if (this.game.key.escape.trigger() || this.game.key.space.trigger()) {
+            this.game.setState('pause', {
+                keepVisible: true,
+                score:{
+                    points: this.score,
+                    lines: this.rowsCleared
+                }});
         }
         
         if (this.tetromino) {
@@ -92,7 +100,7 @@ export default class GamePlay extends State {
      */
     gameOver() {
         this.game.scores.add(this.rowsCleared, this.score);
-        this.game.setState('gameover');
+        this.game.setState('gameover', {keepVisible: true});
     }
     
     /**
@@ -119,6 +127,11 @@ export default class GamePlay extends State {
         }
          
         let tickMod = this.game.key.down.pressed ? this.tetrominoDropModifier : 1;
+        if ((--this.tetrominoFallSpeedupTimer) <= 0) {
+            this.tetrominoFallSpeed = Math.max(this.tetrominoFallSpeedMin, this.tetrominoFallSpeed - this.tetrominoFallSpeedupStep);
+            this.tetrominoFallSpeedupTimer = this.tetrominoFallSpeedupDelay;
+            console.log('speed: ', this.tetrominoFallSpeed);
+        }
         if ((this.tetrominoFallTimer -= tickMod) <= 0) {
             if (this.board.collides(this.tetromino.absolutePos(1, 0))) {
                 this.lockTetromino();

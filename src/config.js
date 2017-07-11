@@ -6,6 +6,9 @@ export const game = {
     hiddenRows: 2,
     // number of frames between block falls one row
     fallSpeed: 30,
+    fallSpeedMin: 3,
+    fallSpeedupStep: 2,
+    fallSpeedupDelay: 1800,
     // block will fall this time faster when drop key pressed
     dropModifier: 10
 }
@@ -21,8 +24,8 @@ export const display = {
 
 export const controls = {
     // controls key repeat speed
-    repeatDelay: 4,
-    initialRepeatDelay: 12
+    repeatDelay: 2,
+    initialRepeatDelay: 10
 }
 
 export default {game, display, controls};

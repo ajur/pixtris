@@ -5,6 +5,7 @@ import Keyboard from './utils/Keyboard';
 import GamePlay from './play/GamePlay';
 import GameMenu from './menu/GameMenu';
 import GameOver from './menu/GameOver';
+import GamePaused from './menu/GamePaused';
 
 
 /**
@@ -33,6 +34,7 @@ export default class Game {
         
         // define available game states
         this.addState('play', new GamePlay(this));
+        this.addState('pause', new GamePaused(this));
         this.addState('menu', new GameMenu(this));
         this.addState('gameover', new GameOver(this));
         
@@ -66,18 +68,23 @@ export default class Game {
     /**
      * changes current state
      * @param {String} stateName
+     * @param {Object} opts additional options passed by previous state                    
      */
-    setState(stateName) {
+    setState(stateName, opts) {
         let oldState = this.state;
         
         this.state = null;
         
         if (oldState) {
-            oldState.exit();
+            if (!opts.keepVisible) {
+                oldState.visible = false;
+            }
+            oldState.exit(opts);
         }
         
         let newState = this.gameStates[stateName];
-        newState.enter();
+        newState.enter(opts);
+        newState.visible = true;
         this.state = newState;
     }
 }

@@ -9,22 +9,21 @@ import { Container } from 'pixi.js';
 export default class State extends Container {
     constructor() {
         super();
+        
         this.visible = false;
     }
     
     /**
      * action on state enter
+     * @param {Object} opts additional options passed on state change
      */
-    enter() {
-        this.visible = true;
-    }
+    enter(opts) {}
     
     /**
      * action on state exit
+     * @param {Object} opts additional options passed on state change
      */
-    exit() {
-        this.visible = false;
-    }
+    exit(opts) {}
     
     /**
      * action on state update (game loop)
