@@ -2,7 +2,7 @@
 
 Tetris with pixi.js
 
-Work in progress...
+Play it here: https://ajur.github.io/pixtris/dist/
 
 ## Changelog
 
