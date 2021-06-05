@@ -1,6 +1,8 @@
 {
 	"short_name": "Pixtris",
   	"name": "Pixtris",
+    "start_url": "/pixtris/dist/",
+    "scope": "/pixtris/dist/",
 	"display": "fullscreen",
 	"orientation": "portrait",
     "icons": [
