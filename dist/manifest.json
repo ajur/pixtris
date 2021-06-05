@@ -1,0 +1,13 @@
+{
+	"short_name": "Pixtris",
+  	"name": "Pixtris",
+	"display": "fullscreen",
+	"orientation": "portrait",
+    "icons": [
+		{
+			"src": "icon.png",
+			"type": "image/png",
+			"sizes": "256x256"
+		}
+  ]
+}
